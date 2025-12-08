@@ -1,5 +1,5 @@
 ---
-theme: seriph
+theme: apple-basic
 background: https://images.unsplash.com/photo-1556075798-4825dfaaf498?w=1920
 title: Git Worktree + Copilot Agents
 info: |
