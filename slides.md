@@ -382,6 +382,77 @@ Here are more practical use cases. Code review - you can address review comments
 -->
 
 ---
+layout: default
+---
+
+# VS Code Integration Tips 💡
+
+<div class="grid grid-cols-2 gap-8">
+
+<div>
+
+### Opening Worktrees
+
+```bash
+# Open each worktree in separate window
+code ~/project-main
+code ~/project-feature
+code ~/project-hotfix
+
+# Or use multi-root workspace
+code --add ~/project-feature
+```
+
+<v-click>
+
+### Window Management
+
+- Each window = isolated context
+- Separate terminal per worktree
+- Independent extension state
+- Git operations scoped to worktree
+
+</v-click>
+
+</div>
+
+<div>
+
+<v-click>
+
+### Settings & Extensions
+
+**Shared across worktrees:**
+- User settings
+- Installed extensions
+- Keyboard shortcuts
+- Theme preferences
+
+**Per-worktree:**
+- Workspace settings (.vscode/)
+- Debug configurations
+- Task definitions
+- Launch configurations
+
+</v-click>
+
+<v-click>
+
+<div class="mt-4 p-3 bg-blue-500 bg-opacity-20 rounded text-sm">
+  <strong>💡 Pro Tip:</strong> Use <code>File > Add Folder to Workspace</code> to create multi-root workspace with all your worktrees visible in one window!
+</div>
+
+</v-click>
+
+</div>
+
+</div>
+
+<!--
+VS Code works great with worktrees. You can open each worktree in a separate window for complete isolation, or use multi-root workspaces to see all worktrees in one window. Settings and extensions are shared at the user level, but workspace-specific settings in .vscode folders are per-worktree. This gives you flexibility - shared tools but independent configurations.
+-->
+
+---
 layout: cover
 background: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1920
 ---
@@ -514,28 +585,19 @@ layout: default
 
 <div>
 
-```mermaid {scale: 0.6}
-graph TB
-    subgraph "Agent Sessions View"
-        S1["🟢 Feature Implementation"]
-        S2["🟡 Bug Fix Analysis"]
-        S3["⚪ Code Review"]
-    end
-
-    subgraph "Your Worktrees"
-        W1["project-feature"]
-        W2["project-bugfix"]
-        W3["project-review"]
-    end
-
-    S1 --> W1
-    S2 --> W2
-    S3 --> W3
+```mermaid {scale: 0.55, theme: 'dark'}
+graph LR
+    S1["🟢 Feature Agent"] --> W1["~/project-feature"]
+    S2["🟡 Bugfix Agent"] --> W2["~/project-bugfix"]
+    S3["⚪ Review Agent"] --> W3["~/project-review"]
 ```
 
+<div class="mt-4 text-sm opacity-80">
+  <strong>Pattern:</strong> One agent session per worktree<br>
+  <strong>Result:</strong> Parallel AI assistance with clean context separation
 </div>
 
-</div>
+</div></div>
 
 <v-click>
 
@@ -669,37 +731,46 @@ layout: default
 
 # The Workflow: Worktree + Agent Per Task
 
-```mermaid {scale: 0.65}
-flowchart LR
-    subgraph "Your Machine"
-        subgraph "Worktree 1: Feature"
-            F1["VS Code Window 1"]
-            A1["Copilot Agent"]
-        end
+<div v-motion :initial="{ opacity: 0, y: 50 }" :enter="{ opacity: 1, y: 0, transition: { delay: 200 } }">
 
-        subgraph "Worktree 2: Bugfix"
-            F2["VS Code Window 2"]
-            A2["Copilot Agent"]
-        end
+```mermaid {scale: 0.6, theme: 'dark'}
+graph TB
+    W1["Worktree 1<br/>Feature"]
+    W2["Worktree 2<br/>Bugfix"]
+    W3["Worktree 3<br/>Review"]
 
-        subgraph "Worktree 3: Review"
-            F3["VS Code Window 3"]
-            A3["Copilot Agent"]
-        end
-    end
+    A1["Local Agent"]
+    A2["Local Agent"]
+    A3["Local Agent"]
 
-    subgraph "Cloud"
-        CA["Coding Agent"]
-        CA -->|"Creates PR"| PR["Pull Request"]
-    end
+    CA["Cloud Agent"]
+    PR["Auto PR"]
 
-    A1 -->|"Local assist"| F1
-    A2 -->|"Local assist"| F2
-    A3 -->|"Local assist"| F3
-    F1 -->|"Delegate heavy task"| CA
+    W1 --> A1
+    W2 --> A2
+    W3 --> A3
+
+    A1 -.->|delegate| CA
+    CA --> PR
 ```
 
-<!--
+</div>
+
+<v-clicks>
+
+<div class="mt-6 grid grid-cols-3 gap-4 text-sm">
+  <div class="p-3 bg-blue-500 bg-opacity-20 rounded">
+    <strong>Worktree 1:</strong> Interactive coding with local agent
+  </div>
+  <div class="p-3 bg-green-500 bg-opacity-20 rounded">
+    <strong>Worktree 2:</strong> Quick bugfix with AI assist
+  </div>
+  <div class="p-3 bg-purple-500 bg-opacity-20 rounded">
+    <strong>Worktree 3:</strong> Heavy feature delegated to cloud
+  </div>
+</div>
+
+</v-clicks><!--
 Here's the ultimate workflow. Each worktree gets its own VS Code window with its own Copilot agent for local assistance. When you have a heavy task, you can delegate it to the cloud coding agent which works asynchronously and creates PRs for you. It's like having a team of AI developers working in parallel.
 -->
 
@@ -738,6 +809,81 @@ git worktree list  # See all your parallel workstreams
 
 <!--
 Here's a complete scripted example. First, create worktrees for each task. Open each in its own VS Code window. In one window, work interactively with Copilot on authentication. In another, delegate dashboard creation to the cloud coding agent. Meanwhile, you can continue working on main. All three efforts happening in parallel, each with clean separation.
+-->
+
+---
+layout: default
+---
+
+# See It In Action 🎯
+
+<div class="grid grid-cols-2 gap-8 mt-8">
+
+<div>
+
+### Multiple Worktrees Workflow
+
+```bash
+# Your typical setup
+~/projects/
+├── my-app/           # 🪟 Window 1: Main
+├── my-app-feature/   # 🪟 Window 2: Feature
+└── my-app-hotfix/    # 🪟 Window 3: Hotfix
+
+# Each window shows:
+# - Different branch checked out
+# - Independent file changes
+# - Separate terminal/git status
+# - Own Copilot context
+```
+
+<v-click>
+
+<div class="mt-4 p-3 bg-green-500 bg-opacity-20 rounded">
+  <strong>✨ The Magic:</strong> Switch between windows = instant context switch. No git commands needed!
+</div>
+
+</v-click>
+
+</div>
+
+<div>
+
+<v-click>
+
+### Agent Sessions in Action
+
+```text
+Agent Sessions View (Sidebar)
+├── 🟢 Feature Implementation
+│   └── Context: ~/my-app-feature
+│   └── Status: Generating tests...
+│
+├── 🟡 Code Review Fixes
+│   └── Context: ~/my-app-hotfix
+│   └── Status: Running...
+│
+└── ⚪ Documentation
+    └── Context: ~/my-app
+    └── Status: Completed ✓
+```
+
+</v-click>
+
+<v-click>
+
+<div class="mt-4 p-3 bg-purple-500 bg-opacity-20 rounded">
+  <strong>🎯 Each agent:</strong> Isolated context per worktree. No confusion, pure parallel power!
+</div>
+
+</v-click>
+
+</div>
+
+</div>
+
+<!--
+Here's what it looks like in practice. You have multiple directories, each a worktree with its own branch. Open them in separate VS Code windows, and switching between them is instant - no git commands needed. The Agent Sessions view in VS Code shows all your AI assistants working in parallel, each scoped to their worktree's context.
 -->
 
 ---
@@ -936,7 +1082,7 @@ class: text-center
 
 # Resources 📚
 
-<div class="grid grid-cols-2 gap-8 mt-8">
+<div class="grid grid-cols-3 gap-8 mt-8">
 
 <div class="text-left">
 
@@ -946,21 +1092,43 @@ class: text-center
 - [Git Book - Worktrees](https://git-scm.com/book)
 - `git worktree --help`
 
+<div class="mt-4 p-4 bg-white rounded flex items-center justify-center h-32">
+  <img src="/qr-git-worktree.svg" alt="QR Code for Git Worktree Docs" class="h-full w-auto" />
+</div>
+
 </div>
 
 <div class="text-left">
 
 ### GitHub Copilot Agents
 
-- [Unified Agent Experience Blog](https://code.visualstudio.com/blogs/2025/11/03/unified-agent-experience)
+- [Unified Agent Experience](https://code.visualstudio.com/blogs/2025/11/03/unified-agent-experience)
 - [GitHub Copilot Docs](https://docs.github.com/copilot)
-- [VS Code Copilot Extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot)
+- [VS Code Extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot)
 
+<div class="mt-4 p-4 bg-white rounded flex items-center justify-center h-32">
+  <img src="/qr-vscode-blog.svg" alt="QR Code for VS Code Blog Post" class="h-full w-auto" />
 </div>
 
 </div>
 
-<div class="mt-12">
+<div class="text-left">
+
+### This Presentation
+
+- [GitHub Repository](https://github.com/TheRoks/git-worktree)
+- [View Online](https://git-worktree.vercel.app)
+- Clone and try it yourself!
+
+<div class="mt-4 p-4 bg-white rounded flex items-center justify-center h-32">
+  <img src="/qr-presentation.svg" alt="QR Code for This Presentation" class="h-full w-auto" />
+</div>
+
+</div>
+
+</div>
+
+<div class="mt-8">
 
 ### Try It Now!
 
