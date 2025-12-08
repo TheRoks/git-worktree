@@ -25,6 +25,10 @@ colorSchema: dark
   </span>
 </div>
 
+<div class="abs-bl m-6 text-sm opacity-75">
+  Stefan Roks
+</div>
+
 <div class="abs-br m-6 flex gap-2">
   <a href="https://git-scm.com/docs/git-worktree" target="_blank" class="text-xl slidev-icon-btn opacity-50 !border-none !hover:text-white">
     <carbon:logo-github />
