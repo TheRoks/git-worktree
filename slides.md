@@ -13,6 +13,9 @@ mdc: true
 highlighter: shiki
 lineNumbers: true
 colorSchema: dark
+download: true
+exportFilename: git-worktree-copilot-agents
+hideInToc: true
 ---
 
 # <span class="gradient-text">Git Worktree + Copilot Agents</span>
@@ -63,24 +66,36 @@ layout: default
 
 # The Context Switching Nightmare
 
-<v-clicks>
+<div v-click="1">
 
 - 🔄 **Mid-feature, urgent bug report comes in**
   - Stash changes, switch branch, fix bug, switch back, pop stash... hope nothing breaks
 
+</div>
+<div v-click="2">
+
 - 🧠 **Mental context loss**
   - "Wait, what was I working on again?"
+
+</div>
+<div v-click="3">
 
 - 📦 **Multiple PRs in flight**
   - Waiting for review on PR #1, want to start feature #2 that depends on it
 
+</div>
+<div v-click="4">
+
 - ⏱️ **Time wasted**
   - Average developer loses 23 minutes to regain focus after interruption
+
+</div>
+<div v-click="5">
 
 - 🤯 **Stash conflicts**
   - `git stash pop` → CONFLICT → 💥
 
-</v-clicks>
+</div>
 
 <!--
 We've all been there. You're deep in a complex refactoring, your boss walks in with an urgent production bug. Now you have to stash everything, switch branches, fix the issue, and somehow get back to where you were. Each context switch costs you mental energy and time. Studies show it takes about 23 minutes to fully regain focus after an interruption.
@@ -93,15 +108,23 @@ class: text-center
 
 # What if you could...
 
-<v-clicks>
+<div v-click="1" v-motion :initial="{ x: -80, opacity: 0 }" :enter="{ x: 0, opacity: 1 }">
 
 ## Work on multiple branches **simultaneously**?
 
+</div>
+
+<div v-click="2" v-motion :initial="{ x: -80, opacity: 0 }" :enter="{ x: 0, opacity: 1 }">
+
 ## Without stashing?
+
+</div>
+
+<div v-click="3" v-motion :initial="{ x: -80, opacity: 0 }" :enter="{ x: 0, opacity: 1 }">
 
 ## Without losing context?
 
-</v-clicks>
+</div>
 
 <!--
 What if I told you there's a better way? What if you could have multiple branches checked out at the same time, each in their own directory, fully independent?
@@ -578,7 +601,7 @@ layout: default
 </div>
 
 <!--
-Let's meet all the agents. GitHub Copilot is your core assistant - always there for inline suggestions and chat. The Copilot Coding Agent runs in the cloud, working autonomously to implement features and create PRs even when you're not at your computer. GitHub Copilot CLI helps with terminal commands. And OpenAI Codex, now integrated via Copilot Pro+, brings advanced reasoning and complex code generation capabilities.
+Let's meet all the agents available with GitHub Copilot Business. GitHub Copilot is your core assistant - always there for inline suggestions and chat. The Copilot Coding Agent runs in the cloud, working autonomously to implement features and create PRs even when you're not at your computer. GitHub Copilot CLI helps with terminal commands. And Copilot Edits enables multi-file editing and refactoring across your entire codebase.
 -->
 
 ---
@@ -1251,6 +1274,10 @@ class: text-center
 # Questions? 🙋
 
 <div class="mt-8">
+
+<div class="abs-br m-6 text-sm opacity-50">
+  <SlideCurrentNo /> / <SlidesTotal />
+</div>
 
 ## Thank You!
 
