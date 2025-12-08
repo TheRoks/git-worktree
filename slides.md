@@ -116,7 +116,7 @@ Enter git worktree - a powerful but underused feature that's been in Git since v
 
 ---
 layout: two-cols
-layoutClass: gap-16
+layoutClass: gap-8
 ---
 
 # What is Git Worktree?
@@ -140,33 +140,26 @@ But they **share**:
 
 ::right::
 
-```mermaid {scale: 0.7}
+<div class="mt-4">
+
+```mermaid {scale: 0.55, theme: 'dark'}
 graph TB
-    subgraph "Shared Repository"
-        GIT[".git directory"]
-        COMMITS["Commits & History"]
-        REFS["Branches & Tags"]
-    end
+    GIT[".git"]
 
-    subgraph "Main Worktree"
-        MW["~/project"]
-        MH["HEAD → main"]
-    end
-
-    subgraph "Linked Worktree 1"
-        LW1["~/project-feature"]
-        LH1["HEAD → feature-x"]
-    end
-
-    subgraph "Linked Worktree 2"
-        LW2["~/project-hotfix"]
-        LH2["HEAD → hotfix-123"]
-    end
-
-    GIT --> MW
-    GIT --> LW1
-    GIT --> LW2
+    GIT --> W1["Main<br/>~/project<br/>→ main"]
+    GIT --> W2["Worktree 1<br/>~/project-feature<br/>→ feature-x"]
+    GIT --> W3["Worktree 2<br/>~/project-hotfix<br/>→ hotfix-123"]
 ```
+
+</div>
+
+<div class="mt-4 text-sm">
+
+**Shared**: commits, history, branches, tags
+
+**Per-worktree**: HEAD, index, working files
+
+</div>
 
 <!--
 Git worktree allows a single repository to have multiple working directories. Each worktree has its own HEAD, index, and working files - but they all share the same repository data. This means commits made in one worktree are immediately available in all others.
