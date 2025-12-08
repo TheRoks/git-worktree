@@ -172,6 +172,79 @@
   animation: pulse-glow 2s ease-in-out infinite;
 }
 
+/* Typography optimized for presentation readability */
+h1 {
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+}
+
+h2 {
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: -0.015em;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+h3 {
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+}
+
+/* Body text - improved spacing without size changes */
+p {
+  line-height: 1.65;
+  letter-spacing: 0.015em;
+}
+
+li {
+  line-height: 1.65;
+  letter-spacing: 0.015em;
+  margin-bottom: 0.5rem;
+}
+
+/* Code - clearer for audiences */
+code {
+  font-family: 'Fira Code', 'Cascadia Code', 'JetBrains Mono', monospace;
+  font-weight: 500;
+  letter-spacing: -0.005em;
+  padding: 0.15em 0.35em;
+  border-radius: 0.25rem;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+pre code {
+  line-height: 1.6;
+  padding: 0;
+  background: transparent;
+}
+
+strong {
+  font-weight: 700;
+  color: rgba(255, 255, 255, 1);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+/* Better contrast for all text */
+.slidev-layout {
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+/* Ensure consistent sizing in lists */
+ul, ol {
+  margin-left: 1.5rem;
+}
+
+/* Better visibility for links */
+a {
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}
+
 /* Progress bar styling */
 .slidev-progress {
   background: linear-gradient(90deg, #10b981 0%, #3b82f6 50%, #8b5cf6 100%) !important;
