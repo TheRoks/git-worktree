@@ -109,15 +109,15 @@
 .comparison-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 2rem;
-  margin-top: 2rem;
+  gap: 1.5rem;
+  margin-top: 1rem;
 }
 
 .comparison-card {
   background: linear-gradient(135deg, rgba(239, 68, 68, 0.1) 0%, rgba(220, 38, 38, 0.05) 100%);
   border: 2px solid rgba(239, 68, 68, 0.3);
-  border-radius: 1rem;
-  padding: 1.5rem;
+  border-radius: 0.75rem;
+  padding: 1.25rem;
   transition: all 0.3s ease;
 }
 
@@ -127,13 +127,23 @@
 }
 
 .comparison-card:hover {
-  transform: scale(1.05);
+  transform: scale(1.02);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 
 .comparison-card ul {
   list-style: none;
   padding-left: 0;
+}
+
+/* Consistent spacing and sizing */
+.slidev-layout .grid {
+  gap: 1.5rem;
+}
+
+.slidev-layout h3 {
+  margin-top: 0.5rem;
+  margin-bottom: 0.75rem;
 }
 
 /* Decorative borders */

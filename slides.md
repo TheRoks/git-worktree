@@ -241,7 +241,7 @@ git worktree repair
 
 <v-click>
 
-<div class="mt-8 p-4 bg-blue-500 bg-opacity-20 rounded-lg border-glow">
+<div class="mt-4 p-3 bg-blue-500 bg-opacity-20 rounded-lg border-glow">
   <span class="badge-tip">💡 Pro Tip</span>
   <p class="mt-2">Use <code>--lock</code> when creating worktrees on network drives or removable media to prevent accidental cleanup.</p>
 </div>
@@ -359,7 +359,7 @@ Now the worktree way. Same scenario, but you simply create a new worktree for th
 
 ---
 layout: two-cols
-layoutClass: gap-8
+layoutClass: gap-6
 ---
 
 # More Use Cases
@@ -417,19 +417,18 @@ layout: default
 
 # VS Code Integration Tips 💡
 
-<div class="grid grid-cols-2 gap-8">
+<div class="grid grid-cols-2 gap-6 text-sm">
 
 <div>
 
 ### Opening Worktrees
 
 ```bash
-# Open each worktree in separate window
+# Separate windows
 code ~/project-main
 code ~/project-feature
-code ~/project-hotfix
 
-# Or use multi-root workspace
+# Multi-root workspace
 code --add ~/project-feature
 ```
 
@@ -439,8 +438,7 @@ code --add ~/project-feature
 
 - Each window = isolated context
 - Separate terminal per worktree
-- Independent extension state
-- Git operations scoped to worktree
+- Git operations scoped
 
 </v-click>
 
@@ -452,24 +450,20 @@ code --add ~/project-feature
 
 ### Settings & Extensions
 
-**Shared across worktrees:**
-- User settings
-- Installed extensions
-- Keyboard shortcuts
-- Theme preferences
+**Shared:**
+- User settings & extensions
+- Keyboard shortcuts & themes
 
 **Per-worktree:**
 - Workspace settings (.vscode/)
-- Debug configurations
-- Task definitions
-- Launch configurations
+- Debug & task configs
 
 </v-click>
 
 <v-click>
 
-<div class="mt-4 p-3 bg-blue-500 bg-opacity-20 rounded text-sm">
-  <strong>💡 Pro Tip:</strong> Use <code>File > Add Folder to Workspace</code> to create multi-root workspace with all your worktrees visible in one window!
+<div class="mt-3 p-2 bg-blue-500 bg-opacity-20 rounded text-xs">
+  <strong>💡 Pro Tip:</strong> Use <code>File > Add Folder to Workspace</code> for multi-root view
 </div>
 
 </v-click>
@@ -519,7 +513,7 @@ layout: default
 
 <v-click>
 
-<div class="mt-8 p-4 bg-purple-500 bg-opacity-20 rounded-lg">
+<div class="mt-4 p-3 bg-purple-500 bg-opacity-20 rounded-lg">
   <strong>🎯 Key Insight:</strong> Just like worktrees give you parallel branches, agents give you parallel AI assistants - each with their own context and focus.
 </div>
 
@@ -535,51 +529,47 @@ layout: default
 
 # Meet the Agents 🤖
 
-<div class="grid grid-cols-2 gap-8 mt-8">
+<div class="grid grid-cols-2 gap-6 mt-4">
 
 <v-clicks>
 
-<div class="p-4 bg-blue-500 bg-opacity-20 rounded-lg">
-  <h3>GitHub Copilot</h3>
-  <p class="text-sm">The core AI assistant</p>
-  <ul class="text-sm mt-2">
+<div class="p-3 bg-blue-500 bg-opacity-20 rounded-lg">
+  <h3 class="text-xl">GitHub Copilot</h3>
+  <p class="text-xs mt-1">The core AI assistant</p>
+  <ul class="text-xs mt-2 space-y-1">
     <li>Inline code suggestions</li>
     <li>Chat-based assistance</li>
     <li>Code explanations</li>
-    <li>Always available</li>
   </ul>
 </div>
 
-<div class="p-4 bg-green-500 bg-opacity-20 rounded-lg">
-  <h3>Copilot Coding Agent (Cloud)</h3>
-  <p class="text-sm">Autonomous cloud-based coding</p>
-  <ul class="text-sm mt-2">
+<div class="p-3 bg-green-500 bg-opacity-20 rounded-lg">
+  <h3 class="text-xl">Copilot Coding Agent</h3>
+  <p class="text-xs mt-1">Autonomous cloud-based coding</p>
+  <ul class="text-xs mt-2 space-y-1">
     <li>Works asynchronously</li>
     <li>Creates branches & PRs</li>
-    <li>Implements entire features</li>
     <li>Runs while you sleep 😴</li>
   </ul>
 </div>
 
-<div class="p-4 bg-orange-500 bg-opacity-20 rounded-lg">
-  <h3>GitHub Copilot CLI</h3>
-  <p class="text-sm">Terminal command assistance</p>
-  <ul class="text-sm mt-2">
+<div class="p-3 bg-orange-500 bg-opacity-20 rounded-lg">
+  <h3 class="text-xl">GitHub Copilot CLI</h3>
+  <p class="text-xs mt-1">Terminal command assistance</p>
+  <ul class="text-xs mt-2 space-y-1">
     <li>Explains commands</li>
     <li>Suggests shell commands</li>
     <li>Git operations help</li>
-    <li>Works in any terminal</li>
   </ul>
 </div>
 
-<div class="p-4 bg-pink-500 bg-opacity-20 rounded-lg">
-  <h3>Copilot Edits</h3>
-  <p class="text-sm">Multi-file editing mode</p>
-  <ul class="text-sm mt-2">
+<div class="p-3 bg-pink-500 bg-opacity-20 rounded-lg">
+  <h3 class="text-xl">Copilot Edits</h3>
+  <p class="text-xs mt-1">Multi-file editing mode</p>
+  <ul class="text-xs mt-2 space-y-1">
     <li>Edit multiple files at once</li>
     <li>Refactoring across codebase</li>
     <li>Review changes before applying</li>
-    <li>Iterate on edits conversationally</li>
   </ul>
 </div>
 
@@ -597,7 +587,7 @@ layout: default
 
 # Agent Sessions View 📋
 
-<div class="grid grid-cols-2 gap-8">
+<div class="grid grid-cols-2 gap-6">
 
 <div>
 
@@ -693,9 +683,9 @@ layout: default
 
 # Subagents: Context Isolation 🔒
 
-The `#runSubagent` tool prevents "Context Confusion"
+<div class="text-sm mt-2 mb-3">The `#runSubagent` tool prevents "Context Confusion"</div>
 
-<div class="grid grid-cols-2 gap-8 mt-4">
+<div class="grid grid-cols-2 gap-6 mt-2">
 
 <div>
 
@@ -706,8 +696,7 @@ Main Chat:
 ├── Working on Feature A
 ├── Ask about Feature B
 ├── Context gets mixed
-├── Agent gets confused
-└── Responses become incoherent
+└── Responses confused
 ```
 
 </div>
@@ -719,11 +708,10 @@ Main Chat:
 ```text
 Main Chat:
 ├── Working on Feature A
-├── #runSubagent for Feature B
+├── #runSubagent for B
 │   └── Isolated context
-│   └── Returns only result
-├── Main context stays clean
-└── Clear, focused responses
+│   └── Returns result
+└── Main stays clean
 ```
 
 </div>
@@ -732,18 +720,13 @@ Main Chat:
 
 <v-click>
 
-### Example Usage
+<div class="mt-4 text-xs">
 
-```text
-Analyze the authentication module with #runSubagent and
-recommend the best strategy for adding OAuth support
-```
+**Example:** `Analyze auth module with #runSubagent for OAuth strategy`
 
-The subagent:
-- Runs independently
-- Has its own isolated context
-- Returns only the final result
-- Doesn't pollute your main conversation
+**Result:** Subagent runs independently, returns final answer, no context pollution
+
+</div>
 
 </v-click>
 
@@ -762,7 +745,7 @@ class: text-center
 
 # Bringing It All Together
 
-<div class="mt-8 text-xl opacity-80">
+<div class="mt-4 text-xl opacity-80">
   How to combine worktrees and agents for maximum productivity
 </div>
 
@@ -827,7 +810,7 @@ graph TB
 
 <v-clicks>
 
-<div class="mt-6 grid grid-cols-3 gap-4 text-sm">
+<div class="mt-4 grid grid-cols-3 gap-6 text-sm">
   <div class="p-3 bg-blue-500 bg-opacity-20 rounded">
     <strong>Worktree 1:</strong> Interactive coding with local agent
   </div>
@@ -858,7 +841,7 @@ layout: default
   <span class="text-sm opacity-60">~/project - bash</span>
 </div>
 
-```bash {all|2-3|6-8|11-13|16-18|21-24}
+```bash {all|2-3|5-7|9-10|12-13|15-16}
 # Step 1: Create worktrees for parallel work
 git worktree add -b feature/user-auth ../project-auth main
 git worktree add -b feature/dashboard ../project-dashboard main
@@ -866,35 +849,28 @@ git worktree add -b feature/dashboard ../project-dashboard main
 # Step 2: Open each in VS Code
 code ../project-auth
 code ../project-dashboard
-code .  # Keep main open too
 
 # Step 3: In project-auth, use Copilot
-# Chat: "Help me implement JWT authentication for this Express app"
-# Copilot works with you interactively
-# Full context of auth worktree only
+# Chat: "Implement JWT authentication"
 
 # Step 4: In project-dashboard, delegate to cloud agent
-# Chat: "@coding-agent Implement a dashboard with charts showing
-#        user activity. Create all necessary components and tests."
-# Agent works autonomously in the cloud
+# Chat: "@coding-agent Create dashboard with user activity charts"
 
-# Step 5: Continue working on main
-# All three efforts happening in parallel!
-# Check Agent Sessions view for cloud agent progress
-git worktree list  # See all your parallel workstreams
+# Step 5: All three efforts in parallel!
+git worktree list
 ```
 
 <v-click>
 
-<div class="mt-4 grid grid-cols-3 gap-4 text-xs">
+<div class="mt-4 grid grid-cols-3 gap-6 text-xs">
   <div class="p-2 bg-blue-500 bg-opacity-20 rounded">
-    <strong>🎯 Worktree Creation:</strong> 2 commands, 2 isolated branches
+    <strong>🎯 Worktrees:</strong> 2 isolated branches
   </div>
   <div class="p-2 bg-green-500 bg-opacity-20 rounded">
-    <strong>💻 VS Code Windows:</strong> 3 independent contexts
+    <strong>💻 VS Code:</strong> 3 independent contexts
   </div>
   <div class="p-2 bg-purple-500 bg-opacity-20 rounded">
-    <strong>🤖 Agent Sessions:</strong> Parallel AI assistance
+    <strong>🤖 Agents:</strong> Parallel AI assistance
   </div>
 </div>
 
@@ -1007,7 +983,7 @@ Copilot CLI is perfect for git worktree commands since the syntax can be tricky 
 
 ---
 layout: two-cols
-layoutClass: gap-8
+layoutClass: gap-6
 ---
 
 # Best Practices ✨
@@ -1142,7 +1118,7 @@ class: text-center
 
 <v-click>
 
-<div class="mt-8 text-2xl">
+<div class="mt-4 text-2xl">
   <strong>Together:</strong> Work on multiple features simultaneously, each with dedicated AI assistance,
   <br>while cloud agents implement features autonomously.
 </div>
@@ -1203,7 +1179,7 @@ class: text-center
 
 # Resources 📚
 
-<div class="grid grid-cols-3 gap-8 mt-8">
+<div class="grid grid-cols-3 gap-6 mt-4">
 
 <div class="text-left">
 
