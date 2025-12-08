@@ -15,9 +15,9 @@ lineNumbers: true
 colorSchema: dark
 ---
 
-# Git Worktree + Copilot Agents
+# <span class="gradient-text">Git Worktree + Copilot Agents</span>
 
-## Parallel Development Superpowers
+## <span class="text-3xl">Parallel Development Superpowers</span>
 
 <div class="pt-12">
   <span class="px-2 py-1 rounded cursor-pointer" hover="bg-white bg-opacity-10">
@@ -112,7 +112,9 @@ layout: cover
 background: https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?w=1920
 ---
 
-# Enter: Git Worktree 🌳
+<div class="section-marker worktree mb-4">📦 Part 1: Git Worktree</div>
+
+# <span class="gradient-worktree">Enter: Git Worktree 🌳</span>
 
 <!--
 Enter git worktree - a powerful but underused feature that's been in Git since version 2.5
@@ -148,11 +150,16 @@ But they **share**:
 
 ```mermaid {scale: 0.55, theme: 'dark'}
 graph TB
-    GIT[".git"]
+    GIT[".git"]:::gitNode
 
-    GIT --> W1["Main<br/>~/project<br/>→ main"]
-    GIT --> W2["Worktree 1<br/>~/project-feature<br/>→ feature-x"]
-    GIT --> W3["Worktree 2<br/>~/project-hotfix<br/>→ hotfix-123"]
+    GIT --> W1["Main<br/>~/project<br/>→ main"]:::mainNode
+    GIT --> W2["Worktree 1<br/>~/project-feature<br/>→ feature-x"]:::featureNode
+    GIT --> W3["Worktree 2<br/>~/project-hotfix<br/>→ hotfix-123"]:::hotfixNode
+
+    classDef gitNode fill:#8b5cf6,stroke:#a78bfa,stroke-width:3px,color:#fff
+    classDef mainNode fill:#3b82f6,stroke:#60a5fa,stroke-width:2px,color:#fff
+    classDef featureNode fill:#10b981,stroke:#34d399,stroke-width:2px,color:#fff
+    classDef hotfixNode fill:#f59e0b,stroke:#fbbf24,stroke-width:2px,color:#fff
 ```
 
 </div>
@@ -234,8 +241,9 @@ git worktree repair
 
 <v-click>
 
-<div class="mt-8 p-4 bg-blue-500 bg-opacity-20 rounded-lg">
-  <strong>💡 Pro Tip:</strong> Use <code>--lock</code> when creating worktrees on network drives or removable media to prevent accidental cleanup.
+<div class="mt-8 p-4 bg-blue-500 bg-opacity-20 rounded-lg border-glow">
+  <span class="badge-tip">💡 Pro Tip</span>
+  <p class="mt-2">Use <code>--lock</code> when creating worktrees on network drives or removable media to prevent accidental cleanup.</p>
 </div>
 
 </v-click>
@@ -259,6 +267,15 @@ layout: default
 ---
 
 # The Boss Scenario - Traditional Way 😰
+
+<div class="terminal-header">
+  <div class="terminal-dots">
+    <div class="terminal-dot red"></div>
+    <div class="terminal-dot yellow"></div>
+    <div class="terminal-dot green"></div>
+  </div>
+  <span class="text-sm opacity-60">~/project - bash</span>
+</div>
 
 ```bash {all|1-2|4-8|10-14|16-18}
 # You're deep in a refactoring session...
@@ -298,6 +315,15 @@ layout: default
 ---
 
 # The Boss Scenario - Worktree Way 😎
+
+<div class="terminal-header">
+  <div class="terminal-dots">
+    <div class="terminal-dot red"></div>
+    <div class="terminal-dot yellow"></div>
+    <div class="terminal-dot green"></div>
+  </div>
+  <span class="text-sm opacity-60">~/project - bash</span>
+</div>
 
 ```bash {all|1-2|4-6|8-12|14-16}
 # You're deep in a refactoring session...
@@ -461,7 +487,9 @@ layout: cover
 background: https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1920
 ---
 
-# Enter: GitHub Copilot Agents 🤖
+<div class="section-marker agents mb-4">🤖 Part 2: Copilot Agents</div>
+
+# <span class="gradient-agent">Enter: GitHub Copilot Agents 🤖</span>
 
 ## The Unified Agent Experience
 
@@ -591,9 +619,16 @@ layout: default
 
 ```mermaid {scale: 0.55, theme: 'dark'}
 graph LR
-    S1["🟢 Feature Agent"] --> W1["~/project-feature"]
-    S2["🟡 Bugfix Agent"] --> W2["~/project-bugfix"]
-    S3["⚪ Review Agent"] --> W3["~/project-review"]
+    S1["🟢 Feature Agent"]:::featureAgent --> W1["~/project-feature"]:::featureWork
+    S2["🟡 Bugfix Agent"]:::bugAgent --> W2["~/project-bugfix"]:::bugWork
+    S3["⚪ Review Agent"]:::reviewAgent --> W3["~/project-review"]:::reviewWork
+
+    classDef featureAgent fill:#10b981,stroke:#34d399,stroke-width:3px,color:#fff
+    classDef bugAgent fill:#f59e0b,stroke:#fbbf24,stroke-width:3px,color:#fff
+    classDef reviewAgent fill:#6b7280,stroke:#9ca3af,stroke-width:3px,color:#fff
+    classDef featureWork fill:#065f46,stroke:#10b981,stroke-width:2px,color:#fff
+    classDef bugWork fill:#78350f,stroke:#f59e0b,stroke-width:2px,color:#fff
+    classDef reviewWork fill:#374151,stroke:#6b7280,stroke-width:2px,color:#fff
 ```
 
 <div class="mt-4 text-sm opacity-80">
@@ -721,6 +756,8 @@ layout: center
 class: text-center
 ---
 
+<div class="section-marker combined mb-8">🚀 Part 3: The Perfect Combination</div>
+
 <div class="text-6xl mb-8">🌳 + 🤖</div>
 
 # Bringing It All Together
@@ -738,9 +775,13 @@ layout: cover
 background: https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920
 ---
 
-# The Perfect Combination 🚀
+<div class="overlay-dark">
 
-## Worktrees + Agents = Parallel Development Superpowers
+# <span class="gradient-text text-6xl">The Perfect Combination 🚀</span>
+
+## <span class="text-4xl">Worktrees + Agents = Parallel Development Superpowers</span>
+
+</div>
 
 <!--
 Now let's bring it all together - the combination of worktrees and agents.
@@ -756,16 +797,16 @@ layout: default
 
 ```mermaid {scale: 0.6, theme: 'dark'}
 graph TB
-    W1["Worktree 1<br/>Feature"]
-    W2["Worktree 2<br/>Bugfix"]
-    W3["Worktree 3<br/>Review"]
+    W1["Worktree 1<br/>Feature"]:::worktree1
+    W2["Worktree 2<br/>Bugfix"]:::worktree2
+    W3["Worktree 3<br/>Review"]:::worktree3
 
-    A1["Local Agent"]
-    A2["Local Agent"]
-    A3["Local Agent"]
+    A1["Local Agent"]:::localAgent
+    A2["Local Agent"]:::localAgent
+    A3["Local Agent"]:::localAgent
 
-    CA["Cloud Agent"]
-    PR["Auto PR"]
+    CA["Cloud Agent"]:::cloudAgent
+    PR["Auto PR"]:::pr
 
     W1 --> A1
     W2 --> A2
@@ -773,6 +814,13 @@ graph TB
 
     A1 -.->|delegate| CA
     CA --> PR
+
+    classDef worktree1 fill:#10b981,stroke:#34d399,stroke-width:2px,color:#fff
+    classDef worktree2 fill:#f59e0b,stroke:#fbbf24,stroke-width:2px,color:#fff
+    classDef worktree3 fill:#8b5cf6,stroke:#a78bfa,stroke-width:2px,color:#fff
+    classDef localAgent fill:#3b82f6,stroke:#60a5fa,stroke-width:2px,color:#fff
+    classDef cloudAgent fill:#ec4899,stroke:#f472b6,stroke-width:3px,color:#fff
+    classDef pr fill:#10b981,stroke:#34d399,stroke-width:2px,color:#fff
 ```
 
 </div>
@@ -800,6 +848,15 @@ layout: default
 ---
 
 # Complete Scripted Example
+
+<div class="terminal-header">
+  <div class="terminal-dots">
+    <div class="terminal-dot red"></div>
+    <div class="terminal-dot yellow"></div>
+    <div class="terminal-dot green"></div>
+  </div>
+  <span class="text-sm opacity-60">~/project - bash</span>
+</div>
 
 ```bash {all|2-3|6-8|11-13|16-18|21-24}
 # Step 1: Create worktrees for parallel work
@@ -953,9 +1010,18 @@ layout: two-cols
 layoutClass: gap-8
 ---
 
-# Best Practices
+# Best Practices ✨
 
 ### Worktree Organization
+
+<div class="terminal-header">
+  <div class="terminal-dots">
+    <div class="terminal-dot red"></div>
+    <div class="terminal-dot yellow"></div>
+    <div class="terminal-dot green"></div>
+  </div>
+  <span class="text-sm opacity-60">Directory Structure</span>
+</div>
 
 ```bash
 # Recommended directory structure
@@ -1008,33 +1074,34 @@ layout: default
 
 # When NOT to Use Worktrees ⚠️
 
-<v-clicks>
+<div class="comparison-grid mt-4">
 
-- **💾 Disk Space Constraints**
-  - Each worktree duplicates working files
-  - Large repos × many worktrees = significant disk usage
-
-- **⚡ Quick One-Line Fixes**
-  - Simple typo fixes or minor changes
-  - Traditional `git stash` + switch is faster
-
-- **🔀 Simple Branch Switching**
-  - Just reviewing code, not making changes
-  - `git checkout` is sufficient
-
-- **👥 Shared/Remote Development**
-  - CI/CD environments, containers (ephemeral)
-  - Shared network drives (tricky with `--lock`)
-
-</v-clicks>
-
-<v-click>
-
-<div class="mt-3 p-3 bg-orange-500 bg-opacity-20 rounded-lg text-sm">
-  <strong>💡 Golden Rule:</strong> Use worktrees when <strong>actively working</strong> on multiple branches simultaneously. Otherwise, use traditional git.
+<div class="comparison-card">
+  <div class="text-red-400 font-bold mb-1 text-sm">💾 Disk Space Constraints</div>
+  <p class="text-xs">Each worktree duplicates working files</p>
 </div>
 
-</v-click>
+<div class="comparison-card">
+  <div class="text-red-400 font-bold mb-1 text-sm">⚡ Quick One-Line Fixes</div>
+  <p class="text-xs">Traditional `git stash` + switch is faster</p>
+</div>
+
+<div class="comparison-card">
+  <div class="text-red-400 font-bold mb-1 text-sm">🔀 Simple Branch Switching</div>
+  <p class="text-xs">Just reviewing code, not making changes</p>
+</div>
+
+<div class="comparison-card">
+  <div class="text-red-400 font-bold mb-1 text-sm">👥 Shared/Remote Development</div>
+  <p class="text-xs">CI/CD environments, containers (ephemeral)</p>
+</div>
+
+</div>
+
+<div class="mt-4 p-3 bg-orange-500 bg-opacity-20 rounded-lg border-glow text-center">
+  <span class="badge-warning text-xs">💡 Golden Rule</span>
+  <p class="text-sm mt-2">Use worktrees when <strong>actively working</strong> on multiple branches simultaneously.</p>
+</div>
 
 <!--
 Worktrees are powerful but not always necessary. For small quick fixes, traditional git stash and checkout is actually faster. They consume disk space since working files are duplicated. In CI/CD environments or containers, the ephemeral nature doesn't benefit from persistent worktrees. And if you're just reviewing code without changes, a simple checkout is sufficient. Use worktrees when you genuinely need multiple branches actively worked on at the same time.
@@ -1045,40 +1112,30 @@ layout: center
 class: text-center
 ---
 
-# The Power Combo Recap ⚡
+# <span class="gradient-text">The Power Combo Recap ⚡</span>
 
-<div class="grid grid-cols-2 gap-12 mt-8 text-left">
+<div class="comparison-grid mt-12">
 
-<div>
-
-### Git Worktree Gives You
-
-<v-clicks>
-
-- ✅ Multiple branches checked out
-- ✅ Zero stashing needed
-- ✅ Complete context preservation
-- ✅ Parallel development
-- ✅ Clean isolation
-
-</v-clicks>
-
+<div class="comparison-card success">
+  <h3 class="gradient-worktree text-2xl font-bold mb-4">Git Worktree Gives You</h3>
+  <ul class="space-y-2 text-left">
+    <li>✅ Multiple branches checked out</li>
+    <li>✅ Zero stashing needed</li>
+    <li>✅ Complete context preservation</li>
+    <li>✅ Parallel development</li>
+    <li>✅ Clean isolation</li>
+  </ul>
 </div>
 
-<div>
-
-### Copilot Agents Give You
-
-<v-clicks>
-
-- ✅ AI assistance per worktree
-- ✅ Autonomous cloud coding
-- ✅ Context-aware suggestions
-- ✅ Parallel AI workers
-- ✅ Planning & delegation
-
-</v-clicks>
-
+<div class="comparison-card success">
+  <h3 class="gradient-agent text-2xl font-bold mb-4">Copilot Agents Give You</h3>
+  <ul class="space-y-2 text-left">
+    <li>✅ AI assistance per worktree</li>
+    <li>✅ Autonomous cloud coding</li>
+    <li>✅ Context-aware suggestions</li>
+    <li>✅ Parallel AI workers</li>
+    <li>✅ Planning & delegation</li>
+  </ul>
 </div>
 
 </div>
