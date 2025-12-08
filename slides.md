@@ -717,6 +717,23 @@ Subagents solve a critical problem - context confusion. When you're working on o
 -->
 
 ---
+layout: center
+class: text-center
+---
+
+<div class="text-6xl mb-8">🌳 + 🤖</div>
+
+# Bringing It All Together
+
+<div class="mt-8 text-xl opacity-80">
+  How to combine worktrees and agents for maximum productivity
+</div>
+
+<!--
+Now that we've covered git worktrees and GitHub Copilot Agents separately, let's see how they work together to create the ultimate parallel development workflow.
+-->
+
+---
 layout: cover
 background: https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920
 ---
@@ -784,7 +801,7 @@ layout: default
 
 # Complete Scripted Example
 
-```bash {all|1-3|5-8|10-13|15-19|21-24}
+```bash {all|2-3|6-8|11-13|16-18|21-24}
 # Step 1: Create worktrees for parallel work
 git worktree add -b feature/user-auth ../project-auth main
 git worktree add -b feature/dashboard ../project-dashboard main
@@ -803,13 +820,28 @@ code .  # Keep main open too
 # Chat: "@coding-agent Implement a dashboard with charts showing
 #        user activity. Create all necessary components and tests."
 # Agent works autonomously in the cloud
-# Creates PR when done
 
 # Step 5: Continue working on main
 # All three efforts happening in parallel!
 # Check Agent Sessions view for cloud agent progress
 git worktree list  # See all your parallel workstreams
 ```
+
+<v-click>
+
+<div class="mt-4 grid grid-cols-3 gap-4 text-xs">
+  <div class="p-2 bg-blue-500 bg-opacity-20 rounded">
+    <strong>🎯 Worktree Creation:</strong> 2 commands, 2 isolated branches
+  </div>
+  <div class="p-2 bg-green-500 bg-opacity-20 rounded">
+    <strong>💻 VS Code Windows:</strong> 3 independent contexts
+  </div>
+  <div class="p-2 bg-purple-500 bg-opacity-20 rounded">
+    <strong>🤖 Agent Sessions:</strong> Parallel AI assistance
+  </div>
+</div>
+
+</v-click>
 
 <!--
 Here's a complete scripted example. First, create worktrees for each task. Open each in its own VS Code window. In one window, work interactively with Copilot on authentication. In another, delegate dashboard creation to the cloud coding agent. Meanwhile, you can continue working on main. All three efforts happening in parallel, each with clean separation.
@@ -821,30 +853,25 @@ layout: default
 
 # See It In Action 🎯
 
-<div class="grid grid-cols-2 gap-8 mt-8">
+<div class="grid grid-cols-2 gap-6">
 
 <div>
 
-### Multiple Worktrees Workflow
+### Multiple Worktrees
 
 ```bash
-# Your typical setup
 ~/projects/
-├── my-app/           # 🪟 Window 1: Main
-├── my-app-feature/   # 🪟 Window 2: Feature
-└── my-app-hotfix/    # 🪟 Window 3: Hotfix
-
-# Each window shows:
-# - Different branch checked out
-# - Independent file changes
-# - Separate terminal/git status
-# - Own Copilot context
+├── my-app/           # 🪟 Main
+├── my-app-feature/   # 🪟 Feature
+└── my-app-hotfix/    # 🪟 Hotfix
 ```
 
 <v-click>
 
-<div class="mt-4 p-3 bg-green-500 bg-opacity-20 rounded">
-  <strong>✨ The Magic:</strong> Switch between windows = instant context switch. No git commands needed!
+**Each window:** Different branch, independent files, separate terminal
+
+<div class="mt-2 p-2 bg-green-500 bg-opacity-20 rounded text-sm">
+  <strong>✨</strong> Switch windows = instant context switch!
 </div>
 
 </v-click>
@@ -855,29 +882,25 @@ layout: default
 
 <v-click>
 
-### Agent Sessions in Action
+### Agent Sessions
 
 ```text
-Agent Sessions View (Sidebar)
-├── 🟢 Feature Implementation
-│   └── Context: ~/my-app-feature
-│   └── Status: Generating tests...
-│
-├── 🟡 Code Review Fixes
-│   └── Context: ~/my-app-hotfix
-│   └── Status: Running...
-│
-└── ⚪ Documentation
-    └── Context: ~/my-app
-    └── Status: Completed ✓
+🟢 Feature Agent
+   → ~/my-app-feature
+
+🟡 Bugfix Agent
+   → ~/my-app-hotfix
+
+⚪ Docs Agent (Done)
+   → ~/my-app
 ```
 
 </v-click>
 
 <v-click>
 
-<div class="mt-4 p-3 bg-purple-500 bg-opacity-20 rounded">
-  <strong>🎯 Each agent:</strong> Isolated context per worktree. No confusion, pure parallel power!
+<div class="mt-2 p-2 bg-purple-500 bg-opacity-20 rounded text-sm">
+  <strong>🎯</strong> Isolated context per worktree!
 </div>
 
 </v-click>
@@ -958,26 +981,63 @@ layoutClass: gap-8
 
 <v-clicks>
 
-- **One focus per agent session**
-  - Don't mix concerns in one chat
+- **One focus per session**
+  - Don't mix concerns
 
 - **Use subagents for research**
-  - Keep main context clean
+  - Keeps main context clean
 
-- **Delegate appropriate tasks**
-  - Cloud agent: Large features, refactors
-  - Local Copilot: Quick fixes, explanations
+- **Delegate appropriately**
+  - Cloud: Large features
+  - Local: Quick fixes
 
-- **Review agent PRs carefully**
-  - AI is powerful but not perfect
+- **Review PRs carefully**
+  - AI needs human oversight
 
-- **Combine with worktrees**
-  - Agent per worktree = maximum isolation
+- **Pair with worktrees**
 
 </v-clicks>
 
 <!--
 Some best practices to keep in mind. For worktrees, use consistent naming with the project name and purpose. Keep them in the same parent directory. Clean up when done. For agents, keep each session focused on one task. Use subagents for research to keep main context clean. Know which agent to use for which task. And always review AI-generated code carefully.
+-->
+
+---
+layout: default
+---
+
+# When NOT to Use Worktrees ⚠️
+
+<v-clicks>
+
+- **💾 Disk Space Constraints**
+  - Each worktree duplicates working files
+  - Large repos × many worktrees = significant disk usage
+
+- **⚡ Quick One-Line Fixes**
+  - Simple typo fixes or minor changes
+  - Traditional `git stash` + switch is faster
+
+- **🔀 Simple Branch Switching**
+  - Just reviewing code, not making changes
+  - `git checkout` is sufficient
+
+- **👥 Shared/Remote Development**
+  - CI/CD environments, containers (ephemeral)
+  - Shared network drives (tricky with `--lock`)
+
+</v-clicks>
+
+<v-click>
+
+<div class="mt-3 p-3 bg-orange-500 bg-opacity-20 rounded-lg text-sm">
+  <strong>💡 Golden Rule:</strong> Use worktrees when <strong>actively working</strong> on multiple branches simultaneously. Otherwise, use traditional git.
+</div>
+
+</v-click>
+
+<!--
+Worktrees are powerful but not always necessary. For small quick fixes, traditional git stash and checkout is actually faster. They consume disk space since working files are duplicated. In CI/CD environments or containers, the ephemeral nature doesn't benefit from persistent worktrees. And if you're just reviewing code without changes, a simple checkout is sufficient. Use worktrees when you genuinely need multiple branches actively worked on at the same time.
 -->
 
 ---
