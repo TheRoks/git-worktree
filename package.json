@@ -5,7 +5,8 @@
   "scripts": {
     "build": "slidev build",
     "dev": "slidev --open",
-    "export": "slidev export"
+    "export": "slidev export",
+    "postinstall": "pnpm exec playwright install chromium"
   },
   "dependencies": {
     "@slidev/cli": "^52.10.1",
@@ -15,6 +16,7 @@
     "vue": "^3.5.25"
   },
   "devDependencies": {
+    "playwright-chromium": "^1.57.0",
     "qrcode": "^1.5.4"
   }
 }
