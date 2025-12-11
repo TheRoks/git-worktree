@@ -526,11 +526,12 @@ layout: default
 
 ### What's New?
 
-- **Unified Agent Experience** - Single place to manage all coding agents
-- **Agent Sessions View** - See all agent sessions for your project
-- **Multiple Agents** - Local and remote agents working together
+- **Agent HQ** - Centralized hub for all coding agents
+- **Background Agents** - Work independently in isolated workspaces
+- **Custom Organization Agents** - Team-level custom agents shared across your org
+- **Enhanced Session Management** - Archive, move sessions between local and cloud
+- **Dedicated Git Worktree Support** - Agents can work in their own worktrees
 - **Course Correction** - Update agents mid-run
-- **Delegation** - Send any task to any agent
 
 </v-clicks>
 
@@ -543,7 +544,7 @@ layout: default
 </v-click>
 
 <!--
-2025 has been the year of AI agents in VS Code. The unified agent experience gives you a single place to manage multiple coding agents. You can see all agent sessions, run multiple agents simultaneously, and even course-correct them while they're working. The parallel here to worktrees is powerful - just as worktrees give you parallel branches, agents give you parallel AI assistants.
+2025 has been the year of AI agents in VS Code. Agent HQ provides a centralized hub for managing all coding agents. Background agents can work independently while you focus on other tasks. Teams can create custom organization agents. Agents can even run in dedicated git worktrees for complete isolation. The parallel here to worktrees is powerful - just as worktrees give you parallel branches, agents give you parallel AI assistants.
 -->
 
 ---
@@ -570,19 +571,19 @@ layout: default
   <h3 class="text-xl">Copilot Coding Agent</h3>
   <p class="text-xs mt-1">Autonomous cloud-based coding</p>
   <ul class="text-xs mt-2 space-y-1">
-    <li>Works asynchronously</li>
+    <li>Background workspaces</li>
     <li>Creates branches & PRs</li>
     <li>Runs while you sleep 😴</li>
   </ul>
 </div>
 
 <div class="p-3 bg-orange-500 bg-opacity-20 rounded-lg">
-  <h3 class="text-xl">GitHub Copilot CLI</h3>
-  <p class="text-xs mt-1">Terminal command assistance</p>
+  <h3 class="text-xl">Custom Organization Agents</h3>
+  <p class="text-xs mt-1">Team-specific automation</p>
   <ul class="text-xs mt-2 space-y-1">
-    <li>Explains commands</li>
-    <li>Suggests shell commands</li>
-    <li>Git operations help</li>
+    <li>Organization-level agents</li>
+    <li>Standardize team workflows</li>
+    <li>Share across team members</li>
   </ul>
 </div>
 
@@ -601,28 +602,29 @@ layout: default
 </div>
 
 <!--
-Let's meet all the agents available with GitHub Copilot Business. GitHub Copilot is your core assistant - always there for inline suggestions and chat. The Copilot Coding Agent runs in the cloud, working autonomously to implement features and create PRs even when you're not at your computer. GitHub Copilot CLI helps with terminal commands. And Copilot Edits enables multi-file editing and refactoring across your entire codebase.
+Let's meet the agents you can use with GitHub Copilot. GitHub Copilot is your core assistant - always there for inline suggestions and chat. The Copilot Coding Agent runs in the cloud with background workspaces, working autonomously to implement features and create PRs even when you're not at your computer. Custom Organization Agents let teams create standardized workflows that can be shared across the organization. And Copilot Edits enables multi-file editing and refactoring across your entire codebase.
 -->
 
 ---
 layout: default
 ---
 
-# Agent Sessions View 📋
+# Agent HQ & Session Management 📋
 
 <div class="grid grid-cols-2 gap-6">
 
 <div>
 
-### What You Get
+### Centralized Management
 
 <v-clicks>
 
-- **Session Overview** - All active agent sessions
-- **Status Tracking** - Running, idle, completed
-- **Quick Navigation** - Jump between sessions
+- **Agent HQ** - Single hub for all agents
+- **Session Management** - Archive, unarchive, organize
+- **Environment Flexibility** - Move between local and cloud
+- **Worktree Integration** - Run agents in dedicated worktrees
 - **Chat Editors** - Tabbed experience for each agent
-- **Progress Watching** - See work as it happens
+- **Background Workspaces** - Agents work independently
 
 </v-clicks>
 
@@ -660,7 +662,7 @@ graph LR
 </v-click>
 
 <!--
-The Agent Sessions view in VS Code gives you an overview of all your active agent sessions. You can see their status, jump between them, and watch progress in real-time through tabbed chat editors. Notice the pattern emerging here - you can have one agent per worktree, each working on their own task in isolation.
+Agent HQ provides a centralized hub for managing all your coding agents. You can archive sessions when not needed, move them between local and cloud environments, and even run agents in dedicated git worktrees for complete isolation. Background agents work in their own workspaces independently. Notice the pattern - you can have one agent per worktree, each working on their own task with complete context separation.
 -->
 
 ---
@@ -803,17 +805,22 @@ layout: default
 
 ```mermaid {scale: 0.6, theme: 'dark'}
 graph TB
+    HQ["Agent HQ"]:::agentHq
     W1["Worktree 1<br/>Feature"]:::worktree1
     W2["Worktree 2<br/>Bugfix"]:::worktree2
     W3["Worktree 3<br/>Review"]:::worktree3
 
     A1["Local Agent"]:::localAgent
-    A2["Local Agent"]:::localAgent
+    A2["Background Agent"]:::bgAgent
     A3["Local Agent"]:::localAgent
 
     CA["Cloud Agent"]:::cloudAgent
     PR["Auto PR"]:::pr
 
+    HQ --> A1
+    HQ --> A2
+    HQ --> A3
+    
     W1 --> A1
     W2 --> A2
     W3 --> A3
@@ -821,10 +828,12 @@ graph TB
     A1 -.->|delegate| CA
     CA --> PR
 
+    classDef agentHq fill:#8b5cf6,stroke:#a78bfa,stroke-width:4px,color:#fff
     classDef worktree1 fill:#10b981,stroke:#34d399,stroke-width:2px,color:#fff
     classDef worktree2 fill:#f59e0b,stroke:#fbbf24,stroke-width:2px,color:#fff
     classDef worktree3 fill:#8b5cf6,stroke:#a78bfa,stroke-width:2px,color:#fff
     classDef localAgent fill:#3b82f6,stroke:#60a5fa,stroke-width:2px,color:#fff
+    classDef bgAgent fill:#ec4899,stroke:#f472b6,stroke-width:2px,color:#fff
     classDef cloudAgent fill:#ec4899,stroke:#f472b6,stroke-width:3px,color:#fff
     classDef pr fill:#10b981,stroke:#34d399,stroke-width:2px,color:#fff
 ```
@@ -837,8 +846,8 @@ graph TB
   <div class="p-3 bg-blue-500 bg-opacity-20 rounded">
     <strong>Worktree 1:</strong> Interactive coding with local agent
   </div>
-  <div class="p-3 bg-green-500 bg-opacity-20 rounded">
-    <strong>Worktree 2:</strong> Quick bugfix with AI assist
+  <div class="p-3 bg-pink-500 bg-opacity-20 rounded">
+    <strong>Worktree 2:</strong> Background agent in isolated workspace
   </div>
   <div class="p-3 bg-purple-500 bg-opacity-20 rounded">
     <strong>Worktree 3:</strong> Heavy feature delegated to cloud
@@ -846,7 +855,7 @@ graph TB
 </div>
 
 </v-clicks><!--
-Here's the ultimate workflow. Each worktree gets its own VS Code window with its own Copilot agent for local assistance. When you have a heavy task, you can delegate it to the cloud coding agent which works asynchronously and creates PRs for you. It's like having a team of AI developers working in parallel.
+Here's the ultimate workflow. Agent HQ orchestrates all your agents centrally. Each worktree can have its own agent - local agents for interactive work, background agents running in isolated workspaces, or cloud agents working asynchronously. When you have a heavy task, delegate it to a cloud coding agent which works independently and creates PRs for you. It's like having a team of AI developers working in parallel, all managed from one hub.
 -->
 
 ---
@@ -938,16 +947,16 @@ layout: default
 
 <v-click>
 
-### Agent Sessions
+### Agent HQ Dashboard
 
 ```text
-🟢 Feature Agent
+🟢 Feature Agent (Active)
    → ~/my-app-feature
 
-🟡 Bugfix Agent
+🟡 Bugfix Agent (Background)
    → ~/my-app-hotfix
 
-⚪ Docs Agent (Done)
+⚪ Docs Agent (Archived)
    → ~/my-app
 ```
 
@@ -956,7 +965,7 @@ layout: default
 <v-click>
 
 <div class="mt-2 p-2 bg-purple-500 bg-opacity-20 rounded text-sm">
-  <strong>🎯</strong> Isolated context per worktree!
+  <strong>🎯</strong> All agents managed from one hub!
 </div>
 
 </v-click>
@@ -966,7 +975,7 @@ layout: default
 </div>
 
 <!--
-Here's what it looks like in practice. You have multiple directories, each a worktree with its own branch. Open them in separate VS Code windows, and switching between them is instant - no git commands needed. The Agent Sessions view in VS Code shows all your AI assistants working in parallel, each scoped to their worktree's context.
+Here's what it looks like in practice. You have multiple directories, each a worktree with its own branch. Open them in separate VS Code windows, and switching between them is instant - no git commands needed. Agent HQ shows all your agents in one central dashboard - active sessions working interactively, background agents running independently, and archived sessions for completed work. All agents scoped to their worktree's context.
 -->
 
 ---
@@ -1046,25 +1055,28 @@ layoutClass: gap-6
 
 <v-clicks>
 
-- **One focus per session**
-  - Don't mix concerns
+- **Use Agent HQ**
+  - Central hub for all agents
+
+- **Leverage backgrounds agents**
+  - Let them work independently
 
 - **Use subagents for research**
   - Keeps main context clean
 
-- **Delegate appropriately**
-  - Cloud: Large features
-  - Local: Quick fixes
+- **Archive completed sessions**
+  - Keep Agent HQ organized
 
-- **Review PRs carefully**
-  - AI needs human oversight
+- **Custom org agents**
+  - Standardize team workflows
 
-- **Pair with worktrees**
+- **Pair agents with worktrees**
+  - One agent per worktree
 
 </v-clicks>
 
 <!--
-Some best practices to keep in mind. For worktrees, use consistent naming with the project name and purpose. Keep them in the same parent directory. Clean up when done. For agents, keep each session focused on one task. Use subagents for research to keep main context clean. Know which agent to use for which task. And always review AI-generated code carefully.
+Some best practices to keep in mind. For worktrees, use consistent naming with the project name and purpose. Keep them in the same parent directory. Clean up when done. For agents, leverage Agent HQ as your central management hub. Use background agents for tasks that can run independently. Archive completed sessions to keep things organized. Teams should create custom organization agents to standardize workflows. And always pair agents with worktrees - one agent per worktree works beautifully.
 -->
 
 ---
@@ -1129,11 +1141,11 @@ class: text-center
 <div class="comparison-card success">
   <h3 class="gradient-agent text-2xl font-bold mb-4">Copilot Agents Give You</h3>
   <ul class="space-y-2 text-left">
-    <li>✅ AI assistance per worktree</li>
-    <li>✅ Autonomous cloud coding</li>
-    <li>✅ Context-aware suggestions</li>
+    <li>✅ Agent HQ central management</li>
+    <li>✅ Background agent workspaces</li>
+    <li>✅ Custom organization agents</li>
     <li>✅ Parallel AI workers</li>
-    <li>✅ Planning & delegation</li>
+    <li>✅ Dedicated worktree support</li>
   </ul>
 </div>
 
@@ -1142,8 +1154,8 @@ class: text-center
 <v-click>
 
 <div class="mt-4 text-2xl">
-  <strong>Together:</strong> Work on multiple features simultaneously, each with dedicated AI assistance,
-  <br>while cloud agents implement features autonomously.
+  <strong>Together:</strong> Work on multiple features simultaneously via worktrees, managed centrally through Agent HQ,
+  <br>with background agents working independently in isolated workspaces.
 </div>
 
 </v-click>
@@ -1181,10 +1193,10 @@ class: text-center
 
 | Agent | Best For |
 |-------|----------|
+| **Agent HQ** | Central hub for all agents |
 | **Copilot** | Interactive coding, quick fixes |
-| **Coding Agent** | Autonomous feature implementation |
-| **Copilot CLI** | Terminal commands, git help |
-| **Planning Agent** | Breaking down complex tasks |
+| **Background Agents** | Independent task execution |
+| **Custom Org Agents** | Team-standardized workflows |
 | **Copilot Edits** | Multi-file refactoring |
 
 </div>
@@ -1222,7 +1234,7 @@ class: text-center
 
 ### GitHub Copilot Agents
 
-- [Unified Agent Experience](https://code.visualstudio.com/blogs/2025/11/03/unified-agent-experience)
+- [VS Code Updates](https://code.visualstudio.com/updates)
 - [GitHub Copilot Docs](https://docs.github.com/copilot)
 - [VS Code Extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot)
 
