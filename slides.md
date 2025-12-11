@@ -1058,7 +1058,7 @@ layoutClass: gap-6
 - **Use Agent HQ**
   - Central hub for all agents
 
-- **Leverage backgrounds agents**
+- **Leverage background agents**
   - Let them work independently
 
 - **Use subagents for research**
