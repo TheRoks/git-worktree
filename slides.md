@@ -820,7 +820,7 @@ graph TB
     HQ --> A1
     HQ --> A2
     HQ --> A3
-    
+
     W1 --> A1
     W2 --> A2
     W3 --> A3
@@ -1249,7 +1249,7 @@ class: text-center
 ### This Presentation
 
 - [GitHub Repository](https://github.com/TheRoks/git-worktree)
-- [View Online](https://git-worktree.vercel.app)
+- [View Online](https://git-worktree.theroks.com)
 - Clone and try it yourself!
 
 <div class="mt-4 p-4 bg-white rounded flex items-center justify-center h-32">
